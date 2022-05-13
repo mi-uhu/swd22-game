@@ -4,13 +4,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class TileGras implements GameObject {
-    private Tile tileGras;
+public class TileGravel implements GameObject {
+    private Tile tileGravel;
     private final float WIDTH = 32;
     private final float HEIGHT = 32;
 
-    public TileGras() {
-        tileGras = new Tile("tile_gras.png", WIDTH, HEIGHT);
+    public TileGravel() {
+        tileGravel = new Tile("tile_gravel.png", WIDTH, HEIGHT);
     }
 
     @Override
@@ -20,12 +20,12 @@ public class TileGras implements GameObject {
 
     @Override
     public void setPosition(float x, float y) {
-        tileGras.setPosition(x, y);
+        tileGravel.setPosition(x, y);
     }
 
     @Override
     public void draw(SpriteBatch batch) {
-        tileGras.draw(batch);
+        tileGravel.draw(batch);
     }
 
     public float getWidth() { return WIDTH; }
