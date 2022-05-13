@@ -11,9 +11,9 @@ public class TileFactory {
         return tile;
     }
 
-    public List<TileGras> createStartBackgroundTiles(float topLeftX, float topLeftY,
-                                                     float bottomRightX, float bottomRightY ) {
-        List<TileGras> tiles = new ArrayList<>();
+    public List<Tile> createStartBackgroundTiles(float topLeftX, float topLeftY,
+                                                 float bottomRightX, float bottomRightY ) {
+        List<Tile> tiles = new ArrayList<>();
 
         while( topLeftX <= bottomRightX ) {
             float currentY = topLeftY;
