@@ -1,9 +1,6 @@
 package at.compus02.swd.ss2022.game;
 
-import at.compus02.swd.ss2022.game.gameobjects.GameObject;
-import at.compus02.swd.ss2022.game.gameobjects.Sign;
-import at.compus02.swd.ss2022.game.gameobjects.Stone;
-import at.compus02.swd.ss2022.game.gameobjects.TileGras;
+import at.compus02.swd.ss2022.game.gameobjects.*;
 import at.compus02.swd.ss2022.game.input.GameInput;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -13,6 +10,8 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+
+import java.util.List;
 
 /**
  * {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms.
@@ -33,20 +32,17 @@ public class Main extends ApplicationAdapter {
     @Override
     public void create() {
         batch = new SpriteBatch();
+
+        TileFactory tileFactory = new TileFactory();
+
+        List<Tile> tiles = tileFactory.createStartBackgroundTiles(-240, 240,240, -240);
+        for (Tile tile : tiles ) {
+            gameObjects.add( tile );
+        }
+
         Sign sign = new Sign();
         sign.setPosition(10, 10);
 
-//        for (int i = 0; i < 100; i++) {
-            TileGras tileGras = new TileGras();
-            tileGras.setPosition(-230, 200);
-            gameObjects.add(tileGras);
-            tileGras = new TileGras();
-            tileGras.setPosition(-198, 200);
-            gameObjects.add(tileGras);
-//        }
-
-        gameObjects.add(sign);
-        gameObjects.add(new Stone());
         font = new BitmapFont();
         font.setColor(Color.WHITE);
         Gdx.input.setInputProcessor(this.gameInput);
