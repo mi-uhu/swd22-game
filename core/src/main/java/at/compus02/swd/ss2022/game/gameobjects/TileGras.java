@@ -27,4 +27,8 @@ public class TileGras implements GameObject {
     public void draw(SpriteBatch batch) {
         sprite.draw(batch);
     }
+
+    public float getWidth() { return 32; }
+
+    public float getHeight() { return 32; }
 }
