@@ -18,8 +18,7 @@ public class TileFactory {
         while( topLeftX <= bottomRightX ) {
             float currentY = topLeftY;
             while( currentY >= bottomRightY ) {
-                TileGras tile = new TileGras();
-                tile.setPosition( topLeftX, currentY );
+                TileGras tile = createTileGras( topLeftX, currentY );
                 currentY -= tile.getHeight();
 
                 tiles.add(tile);
