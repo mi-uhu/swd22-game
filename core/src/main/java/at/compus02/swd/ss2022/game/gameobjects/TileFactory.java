@@ -15,11 +15,12 @@ public class TileFactory {
                                                      float bottomRightX, float bottomRightY ) {
         List<TileGras> tiles = new ArrayList<>();
 
-        while( topLeftX < bottomRightX ) {
-            while( topLeftY < bottomRightY ) {
+        while( topLeftX <= bottomRightX ) {
+            float currentY = topLeftY;
+            while( currentY >= bottomRightY ) {
                 TileGras tile = new TileGras();
-                tile.setPosition( topLeftX, topLeftY );
-                topLeftY += tile.getHeight();
+                tile.setPosition( topLeftX, currentY );
+                currentY -= tile.getHeight();
 
                 tiles.add(tile);
             }
