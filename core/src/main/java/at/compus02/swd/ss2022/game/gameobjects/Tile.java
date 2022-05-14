@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class Tile implements GameObject {
+public abstract class Tile implements GameObject {
     private Texture image;
     private Sprite sprite;
     private float width;
