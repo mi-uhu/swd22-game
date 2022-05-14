@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -34,32 +35,18 @@ public class Main extends ApplicationAdapter {
     public void create() {
         batch = new SpriteBatch();
 
-        GameObjectFactory grasTileFactory = new GrasTileFactory();
-        List<GameObject> objects = grasTileFactory.createInitialObjects();
-        for (GameObject obj : objects ) {
-            gameObjects.add( obj );
+        List<GameObjectFactory> factories = Arrays.asList(
+                new GrasTileFactory(),
+                new WaterTileFactory(),
+                new PlayerFactory(),
+                new TreasureFactory());
+
+        for(GameObjectFactory factory : factories) {
+            List<GameObject> objects = factory.createInitialObjects();
+            for (GameObject obj : objects ) {
+                gameObjects.add( obj );
+            }
         }
-
-        GameObjectFactory waterTileFactory = new WaterTileFactory();
-        objects = waterTileFactory.createInitialObjects();
-        for (GameObject obj : objects ) {
-            gameObjects.add( obj );
-        }
-
-        GameObjectFactory playerFactory = new PlayerFactory();
-        objects = playerFactory.createInitialObjects();
-        for (GameObject obj : objects ) {
-            gameObjects.add( obj );
-        }
-
-        GameObjectFactory treasureFactory = new TreasureFactory();
-        objects = treasureFactory.createInitialObjects();
-        for (GameObject obj : objects ) {
-            gameObjects.add( obj );
-        }
-
-
-
     }
 
     private void act(float delta) {
