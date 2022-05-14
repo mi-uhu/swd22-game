@@ -1,8 +1,11 @@
 package at.compus02.swd.ss2022.game;
 
+import at.compus02.swd.ss2022.game.factories.GameObjectFactory;
+import at.compus02.swd.ss2022.game.factories.GrasTileFactory;
 import at.compus02.swd.ss2022.game.gameobjects.*;
 import at.compus02.swd.ss2022.game.input.GameInput;
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -33,15 +36,12 @@ public class Main extends ApplicationAdapter {
     public void create() {
         batch = new SpriteBatch();
 
-        TileFactory tileFactory = new TileFactory();
+        GameObjectFactory tileFactory = new GrasTileFactory();
 
-        List<Tile> tiles = tileFactory.createStartBackgroundTiles(-240, -240,240, 240);
-        for (Tile tile : tiles ) {
-            gameObjects.add( tile );
+        List<GameObject> objects = tileFactory.createInitialObjects();
+        for (GameObject obj : objects ) {
+            gameObjects.add( obj );
         }
-
-        Sign sign = new Sign();
-        sign.setPosition(10, 10);
 
         font = new BitmapFont();
         font.setColor(Color.WHITE);
