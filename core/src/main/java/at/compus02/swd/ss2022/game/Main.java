@@ -2,6 +2,8 @@ package at.compus02.swd.ss2022.game;
 
 import at.compus02.swd.ss2022.game.factories.GameObjectFactory;
 import at.compus02.swd.ss2022.game.factories.GrasTileFactory;
+import at.compus02.swd.ss2022.game.factories.PlayerFactory;
+import at.compus02.swd.ss2022.game.factories.WaterTileFactory;
 import at.compus02.swd.ss2022.game.gameobjects.*;
 import at.compus02.swd.ss2022.game.input.GameInput;
 import com.badlogic.gdx.ApplicationAdapter;
@@ -30,22 +32,28 @@ public class Main extends ApplicationAdapter {
     private final float updatesPerSecond = 60;
     private final float logicFrameTime = 1 / updatesPerSecond;
     private float deltaAccumulator = 0;
-    private BitmapFont font;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
 
-        GameObjectFactory tileFactory = new GrasTileFactory();
-
-        List<GameObject> objects = tileFactory.createInitialObjects();
+        GameObjectFactory grasTileFactory = new GrasTileFactory();
+        List<GameObject> objects = grasTileFactory.createInitialObjects();
         for (GameObject obj : objects ) {
             gameObjects.add( obj );
         }
 
-        font = new BitmapFont();
-        font.setColor(Color.WHITE);
-        Gdx.input.setInputProcessor(this.gameInput);
+        GameObjectFactory waterTileFactory = new WaterTileFactory();
+        objects = waterTileFactory.createInitialObjects();
+        for (GameObject obj : objects ) {
+            gameObjects.add( obj );
+        }
+
+        GameObjectFactory playerFactory = new PlayerFactory();
+        objects = playerFactory.createInitialObjects();
+        for (GameObject obj : objects ) {
+            gameObjects.add( obj );
+        }
     }
 
     private void act(float delta) {
@@ -60,7 +68,6 @@ public class Main extends ApplicationAdapter {
         for (GameObject gameObject : gameObjects) {
             gameObject.draw(batch);
         }
-        font.draw(batch, "Hello Game", -220, -220);
         batch.end();
     }
 
