@@ -14,6 +14,8 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -47,7 +49,6 @@ public class Main extends ApplicationAdapter {
                 new SignFactory(),
                 new LogFactory());
 
-
         for(GameObjectFactory factory : factories) {
             List<GameObject> objects = factory.createInitialObjects();
             for (GameObject obj : objects ) {
@@ -63,6 +64,7 @@ public class Main extends ApplicationAdapter {
     }
 
     private void draw() {
+        gameObjects.sort(new GameObjectDrawOrderComperator());
         batch.setProjectionMatrix(viewport.getCamera().combined);
         batch.begin();
         for (GameObject gameObject : gameObjects) {
