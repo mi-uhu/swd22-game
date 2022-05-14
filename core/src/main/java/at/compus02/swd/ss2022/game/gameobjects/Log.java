@@ -27,4 +27,9 @@ public class Log implements GameObject {
     public void draw(SpriteBatch batch) {
         sprite.draw(batch);
     }
+
+    @Override
+    public int getDrawOrder() {
+        return DrawOrder.LOG;
+    }
 }

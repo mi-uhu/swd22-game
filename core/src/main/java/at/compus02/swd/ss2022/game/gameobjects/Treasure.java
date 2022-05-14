@@ -27,4 +27,9 @@ public class Treasure implements GameObject {
     public void draw(SpriteBatch batch) {
         sprite.draw(batch);
     }
+
+    @Override
+    public int getDrawOrder() {
+        return DrawOrder.TREASURE;
+    }
 }

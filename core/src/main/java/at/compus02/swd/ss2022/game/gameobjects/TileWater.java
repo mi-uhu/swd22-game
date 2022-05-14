@@ -4,4 +4,9 @@ public class TileWater extends TileBase {
     public TileWater() {
         super("tile_water.png", 32,32);
     }
+
+    @Override
+    public int getDrawOrder() {
+        return DrawOrder.WATER;
+    }
 }

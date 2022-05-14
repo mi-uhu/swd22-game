@@ -5,4 +5,9 @@ public class TileWall extends TileBase {
         super("tile_wall.png", 32,32);
         sprite.rotate90(isVertical);
     }
+
+    @Override
+    public int getDrawOrder() {
+        return DrawOrder.WALL;
+    }
 }
