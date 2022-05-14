@@ -11,19 +11,18 @@ public class TileFactory {
         return tile;
     }
 
-    public List<Tile> createStartBackgroundTiles(float topLeftX, float topLeftY,
-                                                 float bottomRightX, float bottomRightY ) {
+    public List<Tile> createStartBackgroundTiles(float bottomLeftX, float bottomLeftY, float topRightX, float topRightY ) {
         List<Tile> tiles = new ArrayList<>();
 
-        while( topLeftX <= bottomRightX ) {
-            float currentY = topLeftY;
-            while( currentY >= bottomRightY ) {
-                TileGras tile = createTileGras( topLeftX, currentY );
-                currentY -= tile.getHeight();
+        while( bottomLeftX < topRightX ) {
+            float currentY = bottomLeftY;
+            while( currentY < topRightY ) {
+                TileGras tile = createTileGras( bottomLeftX, currentY );
+                currentY += tile.getHeight();
 
                 tiles.add(tile);
             }
-            topLeftX += tiles.get(0).getWidth();
+            bottomLeftX += tiles.get(0).getWidth();
         }
 
         return tiles;

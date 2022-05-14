@@ -35,7 +35,7 @@ public class Main extends ApplicationAdapter {
 
         TileFactory tileFactory = new TileFactory();
 
-        List<Tile> tiles = tileFactory.createStartBackgroundTiles(-240, 240,240, -240);
+        List<Tile> tiles = tileFactory.createStartBackgroundTiles(-240, -240,240, 240);
         for (Tile tile : tiles ) {
             gameObjects.add( tile );
         }
