@@ -41,7 +41,11 @@ public class Main extends ApplicationAdapter {
                 new WaterTileFactory(),
                 new WallTileFactory(),
                 new PlayerFactory(),
-                new TreasureFactory());
+                new TreasureFactory(),
+                new StoneFactory(),
+                new BushFactory(),
+                new SignFactory(),
+                new LogFactory());
 
 
         for(GameObjectFactory factory : factories) {
