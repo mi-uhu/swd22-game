@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public abstract class TileBase implements GameObject {
     private Texture image;
-    private Sprite sprite;
+    protected Sprite sprite;
     private float width;
     private float height;
 
