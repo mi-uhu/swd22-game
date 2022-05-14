@@ -1,9 +1,6 @@
 package at.compus02.swd.ss2022.game;
 
-import at.compus02.swd.ss2022.game.factories.GameObjectFactory;
-import at.compus02.swd.ss2022.game.factories.GrasTileFactory;
-import at.compus02.swd.ss2022.game.factories.PlayerFactory;
-import at.compus02.swd.ss2022.game.factories.WaterTileFactory;
+import at.compus02.swd.ss2022.game.factories.*;
 import at.compus02.swd.ss2022.game.gameobjects.*;
 import at.compus02.swd.ss2022.game.input.GameInput;
 import com.badlogic.gdx.ApplicationAdapter;
@@ -54,6 +51,15 @@ public class Main extends ApplicationAdapter {
         for (GameObject obj : objects ) {
             gameObjects.add( obj );
         }
+
+        GameObjectFactory treasureFactory = new TreasureFactory();
+        objects = treasureFactory.createInitialObjects();
+        for (GameObject obj : objects ) {
+            gameObjects.add( obj );
+        }
+
+
+
     }
 
     private void act(float delta) {
