@@ -38,6 +38,7 @@ public class Main extends ApplicationAdapter {
         List<GameObjectFactory> factories = Arrays.asList(
                 new GrasTileFactory(),
                 new WaterTileFactory(),
+                new WallTileFactory(),
                 new PlayerFactory(),
                 new TreasureFactory());
 
