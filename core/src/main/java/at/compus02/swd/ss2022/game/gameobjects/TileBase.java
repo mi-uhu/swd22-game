@@ -9,14 +9,12 @@ public abstract class TileBase implements GameObject {
     protected Sprite sprite;
     private float width;
     private float height;
-    private int drawOrder;
 
     public TileBase(String tile, float width, float height) {
         image = new Texture(tile);
         sprite = new Sprite(image);
         this.width = width;
         this.height = height;
-        this.drawOrder = drawOrder;
     }
 
     @Override
