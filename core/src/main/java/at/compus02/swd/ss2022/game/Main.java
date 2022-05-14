@@ -37,10 +37,12 @@ public class Main extends ApplicationAdapter {
 
         List<GameObjectFactory> factories = Arrays.asList(
                 new GrasTileFactory(),
+                new LavaTileFactory(),
                 new WaterTileFactory(),
                 new WallTileFactory(),
                 new PlayerFactory(),
                 new TreasureFactory());
+
 
         for(GameObjectFactory factory : factories) {
             List<GameObject> objects = factory.createInitialObjects();
