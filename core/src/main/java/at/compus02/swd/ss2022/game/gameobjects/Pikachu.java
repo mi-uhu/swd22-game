@@ -4,14 +4,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class Player implements GameObject {
+public class Pikachu implements GameObject {
     private Texture image;
     private Sprite sprite;
 
-    public Player() {
-        image = new Texture("player.png");
-        sprite = new Sprite(image, 48, 56, 48, 56);
-
+    public Pikachu() {
+        image = new Texture("pikachu.png");
+        sprite = new Sprite(image);
     }
 
     @Override
@@ -31,6 +30,6 @@ public class Player implements GameObject {
 
     @Override
     public int getDrawOrder() {
-        return DrawOrder.PLAYER;
+        return DrawOrder.PIKACHU;
     }
 }

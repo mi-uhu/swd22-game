@@ -47,7 +47,10 @@ public class Main extends ApplicationAdapter {
                 new StoneFactory(),
                 new BushFactory(),
                 new SignFactory(),
-                new LogFactory());
+                new LogFactory(),
+                new PikachuFactory(),
+                new TurtokFactory(),
+                new GlurakFactory());
 
         for(GameObjectFactory factory : factories) {
             List<GameObject> objects = factory.createInitialObjects();
