@@ -12,6 +12,9 @@ public class DrawOrder {
     public static final int BUSH = 8;
     public static final int SIGN = 9;
 
+    public static final int GLURAK = 97;
+    public static final int TURTOK = 98;
+    public static final int PIKACHU = 99;
     public static final int PLAYER = 100;
 
 }
