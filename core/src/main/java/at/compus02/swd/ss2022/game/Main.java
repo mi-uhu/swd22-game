@@ -40,12 +40,11 @@ public class Main extends ApplicationAdapter {
         Gdx.input.setInputProcessor(gameInput);
         batch = new SpriteBatch();
 
-        camera.position.x = 2500;
-        camera.position.y = 2500;
+        camera.position.x = 2800;
+        camera.position.y = 2800;
 
         MapFactory mapFactory = new MapFactory();
-        mapFactory.createMap( gameObjects );
-
+        mapFactory.createMap( gameObjects, gameInput, camera );
     }
 
     private void act(float delta) {

@@ -15,11 +15,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class PlayerFactory implements GameObjectFactory {
-    @Override
-    public GameObject create() {
-        return new Player();
-    }
+public class PlayerFactory {
+
     public GameObject create(GameInput gameInput) {
 
         Player player = new Player();
@@ -30,15 +27,10 @@ public class PlayerFactory implements GameObjectFactory {
         gameInput.registerCommand(Input.Keys.RIGHT, new MovePlayerRightCommand(player));
         return player;
     }
-    @Override
-    public GameObject create(float x, float y) {
-        GameObject player = create();
+
+    public GameObject create(GameInput gameInput, float x, float y) {
+        GameObject player = create(gameInput);
         player.setPosition(x, y);
         return player;
-    }
-
-    @Override
-    public List<GameObject> createInitialObjects() {
-        return Collections.singletonList(create(0, 0));
     }
 }
