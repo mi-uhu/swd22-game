@@ -1,5 +1,6 @@
 package at.compus02.swd.ss2022.game.gameobjects;
 
+import at.compus02.swd.ss2022.game.factories.AssetRepository;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -9,7 +10,7 @@ public class Player implements GameObject {
     private Sprite sprite;
 
     public Player() {
-        image = new Texture("player.png");
+        image = AssetRepository.getInstance().getTexture("player.png");
         sprite = new Sprite(image, 48, 56, 48, 56);
 
     }
