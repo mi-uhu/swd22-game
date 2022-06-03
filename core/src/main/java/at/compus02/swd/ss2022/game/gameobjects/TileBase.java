@@ -1,5 +1,6 @@
 package at.compus02.swd.ss2022.game.gameobjects;
 
+import at.compus02.swd.ss2022.game.factories.AssetRepository;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -11,7 +12,7 @@ public abstract class TileBase implements GameObject {
     private float height;
 
     public TileBase(String tile, float width, float height) {
-        image = new Texture(tile);
+        image = AssetRepository.getInstance().getTexture(tile);
         sprite = new Sprite(image);
         this.width = width;
         this.height = height;
