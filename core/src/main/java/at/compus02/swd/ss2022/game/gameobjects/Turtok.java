@@ -1,5 +1,6 @@
 package at.compus02.swd.ss2022.game.gameobjects;
 
+import at.compus02.swd.ss2022.game.factories.AssetRepository;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -9,7 +10,7 @@ public class Turtok implements GameObject {
     private Sprite sprite;
 
     public Turtok() {
-        image = new Texture("turtok.png");
+        image = AssetRepository.getInstance().getTexture("turtok.png");
         sprite = new Sprite(image);
         sprite.setScale((float) 0.8);
     }
