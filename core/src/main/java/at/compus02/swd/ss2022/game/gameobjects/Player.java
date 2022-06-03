@@ -34,4 +34,7 @@ public class Player implements GameObject {
     public int getDrawOrder() {
         return DrawOrder.PLAYER;
     }
+    public void translate (float x, float y) {
+        sprite.translate(x, y);
+    }
 }

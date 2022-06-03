@@ -3,17 +3,8 @@ package at.compus02.swd.ss2022.game.factories;
 import at.compus02.swd.ss2022.game.gameobjects.GameObject;
 import at.compus02.swd.ss2022.game.gameobjects.Player;
 import at.compus02.swd.ss2022.game.input.GameInput;
-import at.compus02.swd.ss2022.game.input.MovePlayer.MovePlayerDownCommand;
-import at.compus02.swd.ss2022.game.input.MovePlayer.MovePlayerLeftCommand;
-import at.compus02.swd.ss2022.game.input.MovePlayer.MovePlayerRightCommand;
-import at.compus02.swd.ss2022.game.input.MovePlayer.MovePlayerUpCommand;
-import com.badlogic.gdx.Game;
+import at.compus02.swd.ss2022.game.input.MovePlayerCommand;
 import com.badlogic.gdx.Input;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class PlayerFactory {
 
@@ -21,10 +12,10 @@ public class PlayerFactory {
 
         Player player = new Player();
 
-        gameInput.registerCommand(Input.Keys.UP, new MovePlayerUpCommand(player));
-        gameInput.registerCommand(Input.Keys.DOWN, new MovePlayerDownCommand(player));
-        gameInput.registerCommand(Input.Keys.LEFT, new MovePlayerLeftCommand(player));
-        gameInput.registerCommand(Input.Keys.RIGHT, new MovePlayerRightCommand(player));
+        gameInput.registerCommand(Input.Keys.UP, new MovePlayerCommand(player, 0, 2));
+        gameInput.registerCommand(Input.Keys.DOWN, new MovePlayerCommand(player, 0, -2));
+        gameInput.registerCommand(Input.Keys.LEFT, new MovePlayerCommand(player, -2, 0));
+        gameInput.registerCommand(Input.Keys.RIGHT, new MovePlayerCommand(player, 2, 0));
         return player;
     }
 
