@@ -5,14 +5,14 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class Player implements GameObject {
+public class Glurak implements GameObject {
     private Texture image;
     private Sprite sprite;
 
-    public Player() {
-        image = AssetRepository.getInstance().getTexture("player.png");
-        sprite = new Sprite(image, 48, 56, 48, 56);
-
+    public Glurak() {
+        image = AssetRepository.getInstance().getTexture("glurak.png");
+        sprite = new Sprite(image);
+        sprite.setScale((float) 0.8);
     }
 
     @Override
@@ -32,6 +32,6 @@ public class Player implements GameObject {
 
     @Override
     public int getDrawOrder() {
-        return DrawOrder.PLAYER;
+        return DrawOrder.TURTOK;
     }
 }
