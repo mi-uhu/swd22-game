@@ -37,24 +37,27 @@ public class Main extends ApplicationAdapter {
     public void create() {
         batch = new SpriteBatch();
 
-        List<GameObjectFactory> factories = Arrays.asList(
-                new GrasTileFactory(),
-                new LavaTileFactory(),
-                new WaterTileFactory(),
-                new WallTileFactory(),
-                new PlayerFactory(),
-                new TreasureFactory(),
-                new StoneFactory(),
-                new BushFactory(),
-                new SignFactory(),
-                new LogFactory());
+        MapFactory mapFactory = new MapFactory();
+        mapFactory.createMap( gameObjects );
 
-        for(GameObjectFactory factory : factories) {
-            List<GameObject> objects = factory.createInitialObjects();
-            for (GameObject obj : objects ) {
-                gameObjects.add( obj );
-            }
-        }
+//        List<GameObjectFactory> factories = Arrays.asList(
+//                new GrasTileFactory(),
+//                new LavaTileFactory(),
+//                new WaterTileFactory(),
+//                new WallTileFactory(),
+//                new PlayerFactory(),
+//                new TreasureFactory(),
+//                new StoneFactory(),
+//                new BushFactory(),
+//                new SignFactory(),
+//                new LogFactory());
+//
+//        for(GameObjectFactory factory : factories) {
+//            List<GameObject> objects = factory.createInitialObjects();
+//            for (GameObject obj : objects ) {
+//                gameObjects.add( obj );
+//            }
+//        }
     }
 
     private void act(float delta) {
