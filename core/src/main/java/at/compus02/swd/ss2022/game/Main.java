@@ -40,9 +40,6 @@ public class Main extends ApplicationAdapter {
         Gdx.input.setInputProcessor(gameInput);
         batch = new SpriteBatch();
 
-        camera.position.x = 2800;
-        camera.position.y = 2800;
-
         MapFactory mapFactory = new MapFactory();
         mapFactory.createMap( gameObjects, gameInput, camera );
     }
@@ -65,6 +62,7 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void render() {
+        gameInput.update();
         Gdx.gl.glClearColor(0.15f, 0.15f, 0.2f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
