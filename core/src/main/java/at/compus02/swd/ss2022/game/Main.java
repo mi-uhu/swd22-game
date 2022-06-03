@@ -8,8 +8,10 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
@@ -24,7 +26,8 @@ import java.util.List;
 public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
 
-    private ExtendViewport viewport = new ExtendViewport(480.0f, 480.0f, 480.0f, 480.0f);
+    private OrthographicCamera camera = new OrthographicCamera();
+    private ExtendViewport viewport = new ExtendViewport(480.0f, 480.0f, camera);
     private GameInput gameInput = new GameInput();
 
     private Array<GameObject> gameObjects = new Array<>();
@@ -37,27 +40,12 @@ public class Main extends ApplicationAdapter {
     public void create() {
         batch = new SpriteBatch();
 
+        camera.position.x = 2500;
+        camera.position.y = 2500;
+
         MapFactory mapFactory = new MapFactory();
         mapFactory.createMap( gameObjects );
 
-//        List<GameObjectFactory> factories = Arrays.asList(
-//                new GrasTileFactory(),
-//                new LavaTileFactory(),
-//                new WaterTileFactory(),
-//                new WallTileFactory(),
-//                new PlayerFactory(),
-//                new TreasureFactory(),
-//                new StoneFactory(),
-//                new BushFactory(),
-//                new SignFactory(),
-//                new LogFactory());
-//
-//        for(GameObjectFactory factory : factories) {
-//            List<GameObject> objects = factory.createInitialObjects();
-//            for (GameObject obj : objects ) {
-//                gameObjects.add( obj );
-//            }
-//        }
     }
 
     private void act(float delta) {
