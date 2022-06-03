@@ -3,9 +3,14 @@ package at.compus02.swd.ss2022.game;
 import at.compus02.swd.ss2022.game.factories.*;
 import at.compus02.swd.ss2022.game.gameobjects.*;
 import at.compus02.swd.ss2022.game.input.GameInput;
+import at.compus02.swd.ss2022.game.input.MovePlayer.MovePlayerDownCommand;
+import at.compus02.swd.ss2022.game.input.MovePlayer.MovePlayerLeftCommand;
+import at.compus02.swd.ss2022.game.input.MovePlayer.MovePlayerRightCommand;
+import at.compus02.swd.ss2022.game.input.MovePlayer.MovePlayerUpCommand;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -36,6 +41,8 @@ public class Main extends ApplicationAdapter {
     @Override
     public void create() {
         batch = new SpriteBatch();
+
+        Gdx.input.setInputProcessor(gameInput);
 
         List<GameObjectFactory> factories = Arrays.asList(
                 new GrasTileFactory(),
@@ -80,6 +87,8 @@ public class Main extends ApplicationAdapter {
     public void render() {
         Gdx.gl.glClearColor(0.15f, 0.15f, 0.2f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+
 
         float delta = Gdx.graphics.getDeltaTime();
         deltaAccumulator += delta;
