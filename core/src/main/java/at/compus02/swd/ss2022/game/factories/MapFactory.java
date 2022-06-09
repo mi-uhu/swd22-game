@@ -66,7 +66,7 @@ public class MapFactory {
                         break;
                     case colorPlayer:
                          tile = grasTileFactory.createTile();
-                         gameObjectList.add(playerFactory.create( gameInput, posX * tile.getWidth(), posY * tile.getHeight()));
+                         gameObjectList.add(playerFactory.create( gameInput, camera, posX * tile.getWidth(), posY * tile.getHeight()));
                          camera.position.x = posX * tile.getWidth();
                          camera.position.y = posY * tile.getHeight();
                         break;
