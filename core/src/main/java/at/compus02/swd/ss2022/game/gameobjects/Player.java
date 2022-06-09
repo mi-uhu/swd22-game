@@ -1,18 +1,27 @@
 package at.compus02.swd.ss2022.game.gameobjects;
 
 import at.compus02.swd.ss2022.game.factories.AssetRepository;
+import at.compus02.swd.ss2022.game.observer.PlayerObserver;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import java.util.ArrayList;
 
 public class Player implements GameObject {
     private Texture image;
     private Sprite sprite;
 
+    private ArrayList<PlayerObserver> playerObservers;
+
     public Player() {
         image = AssetRepository.getInstance().getTexture("player.png");
         sprite = new Sprite(image, 48, 56, 48, 56);
+        playerObservers = new ArrayList<>();
+    }
 
+    public void registerObserver(PlayerObserver playerObserver) {
+        playerObservers.add(playerObserver);
     }
 
     @Override
@@ -36,5 +45,8 @@ public class Player implements GameObject {
     }
     public void translate (float x, float y) {
         sprite.translate(x, y);
+        for (PlayerObserver playerObserver : playerObservers) {
+            playerObserver.playerMoved(x, y);
+        }
     }
 }
