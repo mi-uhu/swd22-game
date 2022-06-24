@@ -1,6 +1,7 @@
 package at.compus02.swd.ss2022.game.factories;
 
 import at.compus02.swd.ss2022.game.gameobjects.GameObject;
+import at.compus02.swd.ss2022.game.gameobjects.Pikachu;
 import at.compus02.swd.ss2022.game.gameobjects.TileBase;
 import at.compus02.swd.ss2022.game.input.GameInput;
 import com.badlogic.gdx.files.FileHandle;
@@ -14,13 +15,15 @@ import java.util.List;
 public class MapFactory {
     public void createMap(Array<GameObject> gameObjectList, GameInput gameInput, OrthographicCamera camera) {
 
-        final int colorWater  = 0x009cffff;
-        final int colorGras   = 0x097b19ff;
-        final int colorGravel = 0xffffffff;
-        final int colorLava   = 0x661b0aff;
-        final int colorWall   = 0x464646ff;
-        final int colorBush   = 0x0fff26ff;
-        final int colorPlayer = 0x000000ff;
+        final int colorWater    = 0x009cffff;
+        final int colorGras     = 0x097b19ff;
+        final int colorGravel   = 0xffffffff;
+        final int colorLava     = 0x661b0aff;
+        final int colorWall     = 0x464646ff;
+        final int colorBush     = 0x0fff26ff;
+        final int colorPlayer   = 0x000000ff;
+        final int colorTurtok   = 0xed1c24ff;
+        final int colorPikachu  = 0xfff200ff;
 
         WaterTileFactory waterTileFactory = new WaterTileFactory();
         GrasTileFactory grasTileFactory = new GrasTileFactory();
@@ -28,6 +31,8 @@ public class MapFactory {
         LavaTileFactory lavaTileFactory = new LavaTileFactory();
         WallTileFactory wallTileFactory = new WallTileFactory();
         BushFactory bushFactory = new BushFactory();
+        TurtokFactory turtokFactory = new TurtokFactory();
+        PikachuFactory pikachuFactory = new PikachuFactory();
         PlayerFactory playerFactory = new PlayerFactory();
 
         Pixmap mapImage = new Pixmap( new FileHandle("gamemap.png"));
@@ -63,6 +68,14 @@ public class MapFactory {
                     case colorBush:
                          tile = grasTileFactory.createTile();
                          gameObjectList.add(bushFactory.create( posX * tile.getWidth(), posY * tile.getHeight()));
+                        break;
+                    case colorTurtok:
+                         tile = grasTileFactory.createTile();
+                         gameObjectList.add(turtokFactory.create(posX * tile.getWidth(), posY * tile.getHeight()));
+                         break;
+                    case colorPikachu:
+                        tile = grasTileFactory.createTile();
+                        gameObjectList.add(pikachuFactory.create(posX * tile.getWidth(), posY * tile.getHeight()));
                         break;
                     case colorPlayer:
                          tile = grasTileFactory.createTile();
