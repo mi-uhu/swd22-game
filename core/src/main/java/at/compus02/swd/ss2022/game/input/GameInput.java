@@ -47,6 +47,7 @@ public class GameInput extends InputAdapter {
             }
         }
     }
+
     public void registerMoveCommand(int keycode, Command command) {
         if (moveCommandHashMap.containsKey(keycode)) {
             moveCommandHashMap.get(keycode).add(command);

@@ -10,9 +10,13 @@ public class MoveCameraPlayerObserver implements PlayerObserver {
     }
 
     @Override
-    public void playerMoved(float x, float y) {
-        System.out.println("Move camera " + x + "/" + y);
-        camera.translate(x, y);
+    public void playerMoved(float fromX, float fromY, float byX, float byY) {
+        camera.translate(byX, byY);
         camera.update();
+    }
+
+    @Override
+    public void playerAttacked(float posX, float posY) {
+        // nothing to do here
     }
 }

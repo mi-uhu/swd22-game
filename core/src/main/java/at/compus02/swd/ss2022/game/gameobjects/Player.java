@@ -45,9 +45,21 @@ public class Player implements GameObject {
     }
 
     public void move(float x, float y) {
+        float fromX = sprite.getX();
+        float fromY = sprite.getY();
+
         sprite.translate(x, y);
         for (PlayerObserver playerObserver : playerObservers) {
-            playerObserver.playerMoved(x, y);
+            playerObserver.playerMoved(fromX, fromY, x, y);
+        }
+    }
+
+    public void attack() {
+        float x = sprite.getX();
+        float y = sprite.getY();
+
+        for (PlayerObserver playerObserver : playerObservers) {
+            playerObserver.playerAttacked(x, y);
         }
     }
 }
