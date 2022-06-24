@@ -1,7 +1,6 @@
 package at.compus02.swd.ss2022.game.input;
 
 import at.compus02.swd.ss2022.game.gameobjects.Player;
-import at.compus02.swd.ss2022.game.input.Command;
 
 public class MovePlayerCommand implements Command {
     private Player player;
@@ -16,6 +15,6 @@ public class MovePlayerCommand implements Command {
 
     @Override
     public void execute() {
-        player.translate(x,y);
+        player.move(x,y);
     }
 }

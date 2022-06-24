@@ -14,10 +14,10 @@ public class PlayerFactory {
 
         Player player = new Player();
 
-        gameInput.registerCommand(Input.Keys.UP, new MovePlayerCommand(player, 0, 2));
-        gameInput.registerCommand(Input.Keys.DOWN, new MovePlayerCommand(player, 0, -2));
-        gameInput.registerCommand(Input.Keys.LEFT, new MovePlayerCommand(player, -2, 0));
-        gameInput.registerCommand(Input.Keys.RIGHT, new MovePlayerCommand(player, 2, 0));
+        gameInput.registerMoveCommand(Input.Keys.UP, new MovePlayerCommand(player, 0, 2));
+        gameInput.registerMoveCommand(Input.Keys.DOWN, new MovePlayerCommand(player, 0, -2));
+        gameInput.registerMoveCommand(Input.Keys.LEFT, new MovePlayerCommand(player, -2, 0));
+        gameInput.registerMoveCommand(Input.Keys.RIGHT, new MovePlayerCommand(player, 2, 0));
 
         player.registerObserver( new MoveCameraPlayerObserver(camera));
 
