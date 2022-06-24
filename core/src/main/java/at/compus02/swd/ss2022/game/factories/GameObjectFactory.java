@@ -7,6 +7,4 @@ import java.util.List;
 public interface GameObjectFactory {
     GameObject create();
     GameObject create(float x, float y);
-
-    List<GameObject> createInitialObjects();
 }
