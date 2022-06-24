@@ -25,11 +25,7 @@ public class MapFactory {
         final int colorTurtok   = 0xed1c24ff;
         final int colorPikachu  = 0xfff200ff;
 
-        WaterTileFactory waterTileFactory = new WaterTileFactory();
-        GrasTileFactory grasTileFactory = new GrasTileFactory();
-        GravelTileFactory gravelTileFactory = new GravelTileFactory();
-        LavaTileFactory lavaTileFactory = new LavaTileFactory();
-        WallTileFactory wallTileFactory = new WallTileFactory();
+        TileFactory tileFactory = new TileFactory();
         BushFactory bushFactory = new BushFactory();
         TurtokFactory turtokFactory = new TurtokFactory();
         PikachuFactory pikachuFactory = new PikachuFactory();
@@ -51,34 +47,34 @@ public class MapFactory {
                 switch (px) {
                     default:
                     case colorWater:
-                        tile = waterTileFactory.createTile();
+                        tile = tileFactory.createWaterTile();
                         break;
                     case colorGras:
-                         tile = grasTileFactory.createTile();
+                         tile = tileFactory.createGrasTile();
                         break;
                     case colorGravel:
-                         tile = gravelTileFactory.createTile();
+                         tile = tileFactory.createGravelTile();
                         break;
                     case colorLava:
-                         tile = lavaTileFactory.createTile();
+                         tile = tileFactory.createLavaTile();
                         break;
                     case colorWall:
-                         tile = wallTileFactory.createTile();
+                         tile = tileFactory.createWallTile();
                         break;
                     case colorBush:
-                         tile = grasTileFactory.createTile();
+                         tile = tileFactory.createGrasTile();
                          gameObjectList.add(bushFactory.create( posX * tile.getWidth(), posY * tile.getHeight()));
                         break;
                     case colorTurtok:
-                         tile = grasTileFactory.createTile();
+                         tile = tileFactory.createGrasTile();
                          gameObjectList.add(turtokFactory.create(posX * tile.getWidth(), posY * tile.getHeight()));
                          break;
                     case colorPikachu:
-                        tile = grasTileFactory.createTile();
+                        tile = tileFactory.createGrasTile();
                         gameObjectList.add(pikachuFactory.create(posX * tile.getWidth(), posY * tile.getHeight()));
                         break;
                     case colorPlayer:
-                         tile = grasTileFactory.createTile();
+                         tile = tileFactory.createGrasTile();
                          gameObjectList.add(playerFactory.create( gameInput, camera, posX * tile.getWidth(), posY * tile.getHeight()));
                          camera.position.x = posX * tile.getWidth();
                          camera.position.y = posY * tile.getHeight();
