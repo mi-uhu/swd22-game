@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public abstract class EnemyBase implements GameObject {
+public abstract class EnemyBase implements GameObject{
     private Texture image;
     private Sprite sprite;
     private EnemyMovementStrategy enemyMovementStrategy;
@@ -32,6 +32,14 @@ public abstract class EnemyBase implements GameObject {
     @Override
     public void draw(SpriteBatch batch) {
         sprite.draw(batch);
+    }
+
+    public float getPositionX() {
+        return sprite.getX();
+    }
+
+    public float getPositionY() {
+        return sprite.getY();
     }
 
     public void move() {
