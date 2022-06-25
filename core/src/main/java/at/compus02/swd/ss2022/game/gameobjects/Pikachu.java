@@ -10,7 +10,9 @@ public class Pikachu extends EnemyBase implements GameObject {
     private Texture image;
     private Sprite sprite;
 
-    public Pikachu() {super ("pikachu.png", new MoveEnemyStrategySquare()); }
+    public Pikachu() {
+        super("pikachu.png", new MoveEnemyStrategySquare());
+    }
 
     @Override
     public int getDrawOrder() {

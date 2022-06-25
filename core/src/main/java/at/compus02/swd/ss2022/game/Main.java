@@ -43,7 +43,7 @@ public class Main extends ApplicationAdapter {
         batch = new SpriteBatch();
 
         MapFactory mapFactory = new MapFactory();
-        mapFactory.createMap( gameObjects, gameInput, camera, enemyManager );
+        mapFactory.createMap(gameObjects, gameInput, camera, enemyManager);
     }
 
     private void act(float delta) {

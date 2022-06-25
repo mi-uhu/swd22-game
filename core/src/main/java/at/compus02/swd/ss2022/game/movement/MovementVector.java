@@ -1,7 +1,7 @@
 package at.compus02.swd.ss2022.game.movement;
 
 public class MovementVector {
-    private float x,y;
+    private float x, y;
 
     public MovementVector(float x, float y) {
         this.x = x;

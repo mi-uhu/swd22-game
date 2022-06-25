@@ -7,12 +7,12 @@ import java.util.ArrayList;
 public class EnemyManager {
     ArrayList<EnemyBase> enemyArrayList = new ArrayList<>();
 
-    public void addEnemy(EnemyBase enemy){
+    public void addEnemy(EnemyBase enemy) {
         enemyArrayList.add(enemy);
     }
 
-    public void update () {
-        for (EnemyBase enemy:enemyArrayList) {
+    public void update() {
+        for (EnemyBase enemy : enemyArrayList) {
             enemy.move();
         }
     }

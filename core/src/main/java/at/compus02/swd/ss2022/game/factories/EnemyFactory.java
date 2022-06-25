@@ -10,6 +10,7 @@ public class EnemyFactory {
     public EnemyBase createTurtok() {
         return new Turtok();
     }
+
     public EnemyBase createTurtok(float x, float y) {
         EnemyBase turtok = createTurtok();
         turtok.setPosition(x, y);
