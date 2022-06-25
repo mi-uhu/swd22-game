@@ -1,34 +1,16 @@
 package at.compus02.swd.ss2022.game.gameobjects;
 
 import at.compus02.swd.ss2022.game.factories.AssetRepository;
+import at.compus02.swd.ss2022.game.movement.MoveEnemyStrategySquare;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class Turtok implements GameObject {
+public class Turtok extends EnemyBase implements GameObject {
     private Texture image;
     private Sprite sprite;
 
-    public Turtok() {
-        image = AssetRepository.getInstance().getTexture("turtok.png");
-        sprite = new Sprite(image);
-        sprite.setScale((float) 0.8);
-    }
-
-    @Override
-    public void act(float delta) {
-
-    }
-
-    @Override
-    public void setPosition(float x, float y) {
-        sprite.setPosition(x, y);
-    }
-
-    @Override
-    public void draw(SpriteBatch batch) {
-        sprite.draw(batch);
-    }
+    public Turtok() { super ("turtok.png", new MoveEnemyStrategySquare()); }
 
     @Override
     public int getDrawOrder() {
