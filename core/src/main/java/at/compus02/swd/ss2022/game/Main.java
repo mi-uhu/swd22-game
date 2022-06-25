@@ -26,12 +26,13 @@ import java.util.List;
 public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
 
+    private Array<GameObject> gameObjects = new Array<>();
+
     private OrthographicCamera camera = new OrthographicCamera();
     private ExtendViewport viewport = new ExtendViewport(480.0f, 480.0f, camera);
     private GameInput gameInput = new GameInput();
-    private EnemyManager enemyManager = new EnemyManager();
+    private EnemyManager enemyManager = new EnemyManager(gameObjects);
 
-    private Array<GameObject> gameObjects = new Array<>();
 
     private final float updatesPerSecond = 60;
     private final float logicFrameTime = 1 / updatesPerSecond;
