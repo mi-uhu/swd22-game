@@ -7,12 +7,13 @@ import at.compus02.swd.ss2022.game.input.PlayerAttackCommand;
 import at.compus02.swd.ss2022.game.input.PlayerMoveCommand;
 import at.compus02.swd.ss2022.game.observer.ConsoleLoggerPlayerObserver;
 import at.compus02.swd.ss2022.game.observer.MoveCameraPlayerObserver;
+import at.compus02.swd.ss2022.game.observer.PlayerObserver;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
 public class PlayerFactory {
 
-    public GameObject create(GameInput gameInput, OrthographicCamera camera) {
+    public GameObject create(GameInput gameInput, OrthographicCamera camera, PlayerObserver playerObserver) {
 
         Player player = new Player();
 
@@ -24,12 +25,13 @@ public class PlayerFactory {
 
         player.registerObserver(new MoveCameraPlayerObserver(camera));
         player.registerObserver(new ConsoleLoggerPlayerObserver());
+        player.registerObserver(playerObserver);
 
         return player;
     }
 
-    public GameObject create(GameInput gameInput, OrthographicCamera camera, float x, float y) {
-        GameObject player = create(gameInput, camera);
+    public GameObject create(GameInput gameInput, OrthographicCamera camera, PlayerObserver playerObserver, float x, float y) {
+        GameObject player = create(gameInput, camera, playerObserver);
         player.setPosition(x, y);
         return player;
     }

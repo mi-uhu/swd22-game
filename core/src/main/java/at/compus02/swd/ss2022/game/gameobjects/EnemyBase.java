@@ -34,6 +34,14 @@ public abstract class EnemyBase implements GameObject{
         sprite.draw(batch);
     }
 
+    public float getPositionX() {
+        return sprite.getX();
+    }
+
+    public float getPositionY() {
+        return sprite.getY();
+    }
+
     public void move () {
         MovementVector movementVector = enemyMovementStrategy.getMovement();
         sprite.translate(movementVector.getX(), movementVector.getY());
