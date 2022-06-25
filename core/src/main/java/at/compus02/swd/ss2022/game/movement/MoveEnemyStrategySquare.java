@@ -11,7 +11,7 @@ public class MoveEnemyStrategySquare implements EnemyMovementStrategy {
     }
 
     @Override
-    public MovementVector getMovement() {
+    public MovementVector getMovement(float nox, float noy) {
         count++;
         if (count <= 50) {
             if (count == 50)

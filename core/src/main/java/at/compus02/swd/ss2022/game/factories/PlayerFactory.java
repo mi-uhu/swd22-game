@@ -11,9 +11,12 @@ import at.compus02.swd.ss2022.game.observer.PlayerObserver;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PlayerFactory {
 
-    public GameObject create(GameInput gameInput, OrthographicCamera camera, PlayerObserver playerObserver) {
+    public Player create(GameInput gameInput, OrthographicCamera camera) {
 
         Player player = new Player();
 
@@ -25,13 +28,12 @@ public class PlayerFactory {
 
         player.registerObserver(new MoveCameraPlayerObserver(camera));
         player.registerObserver(new ConsoleLoggerPlayerObserver());
-        player.registerObserver(playerObserver);
 
         return player;
     }
 
-    public GameObject create(GameInput gameInput, OrthographicCamera camera, PlayerObserver playerObserver, float x, float y) {
-        GameObject player = create(gameInput, camera, playerObserver);
+    public Player create(GameInput gameInput, OrthographicCamera camera, float x, float y) {
+        Player player = create(gameInput, camera);
         player.setPosition(x, y);
         return player;
     }

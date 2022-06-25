@@ -5,24 +5,18 @@ import at.compus02.swd.ss2022.game.gameobjects.GameObject;
 import at.compus02.swd.ss2022.game.gameobjects.Pikachu;
 import at.compus02.swd.ss2022.game.gameobjects.Turtok;
 import at.compus02.swd.ss2022.game.movement.EnemyManager;
+import at.compus02.swd.ss2022.game.movement.EnemyMovementStrategy;
 
 public class EnemyFactory {
-    public EnemyBase createTurtok() {
-        return new Turtok();
-    }
 
-    public EnemyBase createTurtok(float x, float y) {
-        EnemyBase turtok = createTurtok();
+    public EnemyBase createTurtok(float x, float y, EnemyMovementStrategy movementStrategy) {
+        EnemyBase turtok = new Turtok(movementStrategy);
         turtok.setPosition(x, y);
         return turtok;
     }
 
-    public EnemyBase createPikachu() {
-        return new Pikachu();
-    }
-
-    public EnemyBase createPikachu(float x, float y) {
-        EnemyBase pikachu = createPikachu();
+    public EnemyBase createPikachu(float x, float y, EnemyMovementStrategy movementStrategy) {
+        EnemyBase pikachu = new Pikachu(movementStrategy);
         pikachu.setPosition(x, y);
         return pikachu;
     }
