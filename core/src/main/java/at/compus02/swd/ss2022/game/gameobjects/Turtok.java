@@ -10,7 +10,9 @@ public class Turtok extends EnemyBase implements GameObject {
     private Texture image;
     private Sprite sprite;
 
-    public Turtok() { super ("turtok.png", new MoveEnemyStrategySquare()); }
+    public Turtok() {
+        super("turtok.png", new MoveEnemyStrategySquare());
+    }
 
     @Override
     public int getDrawOrder() {
