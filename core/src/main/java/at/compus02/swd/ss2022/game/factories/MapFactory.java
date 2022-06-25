@@ -1,19 +1,18 @@
 package at.compus02.swd.ss2022.game.factories;
 
+import at.compus02.swd.ss2022.game.gameobjects.EnemyBase;
 import at.compus02.swd.ss2022.game.gameobjects.GameObject;
 import at.compus02.swd.ss2022.game.gameobjects.Pikachu;
 import at.compus02.swd.ss2022.game.gameobjects.TileBase;
 import at.compus02.swd.ss2022.game.input.GameInput;
+import at.compus02.swd.ss2022.game.movement.EnemyManager;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Array;
 
-import java.util.List;
-
 public class MapFactory {
-    public void createMap(Array<GameObject> gameObjectList, GameInput gameInput, OrthographicCamera camera) {
+    public void createMap(Array<GameObject> gameObjectList, GameInput gameInput, OrthographicCamera camera, EnemyManager enemyManager) {
 
         final int colorWater    = 0x009cffff;
         final int colorGras     = 0x097b19ff;
@@ -27,8 +26,7 @@ public class MapFactory {
 
         TileFactory tileFactory = new TileFactory();
         BushFactory bushFactory = new BushFactory();
-        TurtokFactory turtokFactory = new TurtokFactory();
-        PikachuFactory pikachuFactory = new PikachuFactory();
+        EnemyFactory enemyFactory = new EnemyFactory();
         PlayerFactory playerFactory = new PlayerFactory();
 
         Pixmap mapImage = new Pixmap( new FileHandle("gamemap.png"));
@@ -67,11 +65,13 @@ public class MapFactory {
                         break;
                     case colorTurtok:
                          tile = tileFactory.createGrasTile();
-                         gameObjectList.add(turtokFactory.create(posX * tile.getWidth(), posY * tile.getHeight()));
+                         gameObjectList.add(enemyFactory.createTurtok(posX * tile.getWidth(), posY * tile.getHeight()));
                          break;
                     case colorPikachu:
                         tile = tileFactory.createGrasTile();
-                        gameObjectList.add(pikachuFactory.create(posX * tile.getWidth(), posY * tile.getHeight()));
+                        EnemyBase pikachu = enemyFactory.createPikachu(posX * tile.getWidth(), posY * tile.getHeight());
+                        gameObjectList.add(pikachu);
+                        enemyManager.addEnemy(pikachu);
                         break;
                     case colorPlayer:
                          tile = tileFactory.createGrasTile();

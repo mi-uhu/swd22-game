@@ -3,6 +3,7 @@ package at.compus02.swd.ss2022.game;
 import at.compus02.swd.ss2022.game.factories.*;
 import at.compus02.swd.ss2022.game.gameobjects.*;
 import at.compus02.swd.ss2022.game.input.GameInput;
+import at.compus02.swd.ss2022.game.movement.EnemyManager;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -28,6 +29,7 @@ public class Main extends ApplicationAdapter {
     private OrthographicCamera camera = new OrthographicCamera();
     private ExtendViewport viewport = new ExtendViewport(480.0f, 480.0f, camera);
     private GameInput gameInput = new GameInput();
+    private EnemyManager enemyManager = new EnemyManager();
 
     private Array<GameObject> gameObjects = new Array<>();
 
@@ -41,7 +43,7 @@ public class Main extends ApplicationAdapter {
         batch = new SpriteBatch();
 
         MapFactory mapFactory = new MapFactory();
-        mapFactory.createMap( gameObjects, gameInput, camera );
+        mapFactory.createMap( gameObjects, gameInput, camera, enemyManager );
     }
 
     private void act(float delta) {
@@ -62,6 +64,7 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void render() {
+        enemyManager.update();
         gameInput.update();
         Gdx.gl.glClearColor(0.15f, 0.15f, 0.2f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
